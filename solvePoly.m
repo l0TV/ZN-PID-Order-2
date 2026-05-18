@@ -1,0 +1,13 @@
+syms a0 a1 a2 a3 a4 a5 x;
+syms f(x);
+f(x)= a5*x^5+a4*x^4+a3*x^3+a2*x^2+a1*x+a0;
+f1 = diff(f);
+f2 = diff(f1);
+td = 20;
+tc = 50;
+y1 = 0;
+y2 = 1;
+left = tc-td/2;
+right = tc+td/2;
+sol = solve([f(left)==y1, f(right)==y2, f1(left)==0, f1(right)==0, f2(left)==0, f2(right)==0], [a0 a1 a2 a3 a4 a5]);
+disp(sol);
